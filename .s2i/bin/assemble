@@ -1,14 +1,15 @@
 #!/bin/bash
 echo "Before assembling do something..."
 
-npm install
-npm run dev
 
 /usr/libexec/s2i/assemble
 rc=$?
 
 if [ $rc -eq 0 ]; then
     echo "After successful assembling do other things..."
+    cd /opt/app-root/src && \
+    npm install && \
+    npm run dev
 else
     echo "After failed assembling do something crazy!"
 fi
