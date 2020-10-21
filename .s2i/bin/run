@@ -4,6 +4,7 @@ echo "Before running application do stuff here..."
 
 cp .env.example .env
 php artisan key:generate
+touch $APP_ROOT/src/database/database.sqlite
 php artisan migrate --force
 
 exec /usr/libexec/s2i/run
