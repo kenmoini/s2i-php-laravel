@@ -21,6 +21,7 @@ class TasksController extends Controller
             'description' => 'required'
         ]);
         $task = new Task();
+        $task->title = $request->title;
         $task->description = $request->description;
         $task->user_id = auth()->user()->id;
         $task->save();
@@ -46,6 +47,7 @@ class TasksController extends Controller
                 'title' => 'required',
                 'description' => 'required'
             ]);
+            $task->title = $request->title;
             $task->description = $request->description;
             $task->save();
             return redirect('/dashboard');

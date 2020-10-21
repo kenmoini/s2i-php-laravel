@@ -15,17 +15,21 @@
                     <a href="/task" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add new Task</a>
                 </div>
             </div>
-            <table class="w-full text-md rounded mb-4">
+            <table class="w-full text-md rounded mb-4 table-fixed">
                 <thead>
                 <tr class="border-b">
-                    <th class="text-left p-3 px-5">Task</th>
-                    <th class="text-left p-3 px-5">Actions</th>
-                    <th></th>
+                    <th class="text-left p-3 px-5 w-2/6">Title</th>
+                    <th class="text-left p-3 px-5 w-1/2">Description</th>
+                    <th class="text-left p-3 px-5 w-1/6">Actions</th>
                 </tr>
                 </thead>
                 <tbody>
+                @if(auth()->user()->tasks->count() > 0)
                 @foreach(auth()->user()->tasks as $task)
                     <tr class="border-b hover:bg-orange-100">
+                        <td class="p-3 px-5">
+                            {{$task->title}}
+                        </td>
                         <td class="p-3 px-5">
                             {{$task->description}}
                         </td>
@@ -39,6 +43,12 @@
                         </td>
                     </tr>
                 @endforeach
+                @else<tr class="border-b hover:bg-orange-100">
+                        <td class="p-3 px-5 text-center" colspan="3">
+                            No tasks found
+                        </td>
+                    </tr>
+                @endif
                 </tbody>
             </table>
             

@@ -11,14 +11,14 @@
         
             <form method="POST" action="/task">
                 <div class="form-group">
-                    <input type="text" placeholder="Title" id="title" name="title" class="bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white" />
+                    <input type="text" placeholder="Title" id="title" name="title" class="bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full mb-3 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white" />
                     @if ($errors->has('title'))
                         <span class="text-danger">{{ $errors->first('title') }}</span>
                     @endif
                 </div>
 
                 <div class="form-group">
-                    <textarea name="description" class="bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white"  placeholder='Enter your task'></textarea>  
+                    <textarea name="description" class="bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full h-20 py-2 px-3 mb-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white"  placeholder='Enter your task'></textarea>  
                     @if ($errors->has('description'))
                         <span class="text-danger">{{ $errors->first('description') }}</span>
                     @endif

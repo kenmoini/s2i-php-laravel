@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TasksController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,11 +18,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/old-dashboard', function () {
+Route::middleware(['auth:sanctum'])->get('/documentation', function () {
     return view('dashboard');
-})->name('old-dashboard');
+})->name('documentation');
 
-Route::middleware(['auth:sanctum', 'verified'])->group(function(){
+Route::middleware(['auth:sanctum'])->group(function(){
     Route::get('/dashboard',[TasksController::class, 'index'])->name('dashboard');
 
     Route::get('/task',[TasksController::class, 'add']);
