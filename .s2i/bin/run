@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo "Before running application do stuff here..."
+
+exec /usr/libexec/s2i/run

@@ -1,0 +1,13 @@
+#!/bin/bash
+echo "Before assembling do something..."
+
+/usr/libexec/s2i/assemble
+rc=$?
+
+if [ $rc -eq 0 ]; then
+    echo "After successful assembling do other things..."
+else
+    echo "After failed assembling do something crazy!"
+fi
+
+exit $rc
